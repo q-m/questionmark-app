@@ -46,7 +46,12 @@ You'll need the Questionmark Android keystore for this, including its password.
 
 ### iOS
 
-TODO
+- set build to version + extra subversion for iOS build number for this version
+- set team to: _Questionmark_ (letting Xcode handle certificates)
+- for code signing identity, release: choose _iOS Developer_
+- _Product_ > _Archive_
+
+Then upload.
 
 ## State machine
 
@@ -99,6 +104,27 @@ will be opened in the app.
 <a href="app://mobile-scan?ret=http%3A%2F%2Fx.test%2Fscan%2F%7BCODE%7D">
   Scan
 </a>
+```
+
+## Updating icons
+
+To update icons (for example when the logo has changed, or when the Apple Store starts to
+require more icons to be present), follow this:
+
+```sh
+npm install cordova-icon
+node_modules/.bin/cordova-icon --icon=res/ios/icon-1024.png
+[ -d platforms/ios ] && \
+  cp platforms/ios/Questionmark/Images.xcassets/AppIcon.appiconset/*.png res/icon/ios/
+[ -d platforms/android ] && \
+  cp platforms/android/app/src/main/res/mipmap-*/icon.png res/icon/android/
+```
+
+Don't forget to add any new icons to `config.xml`. This may help here:
+
+```sh
+file res/icon/ios/* | \
+  sed 's/\(res\/icon\/ios\/.*\.png\):.*, \([0-9]\+\) x .*$/        <icon height="\2" platform="ios" src="\1" width="\2" \/>/'
 ```
 
 ## Adapating a website for the app

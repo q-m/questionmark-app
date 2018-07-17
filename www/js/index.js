@@ -17,14 +17,15 @@
  * under the License.
  */
 
-// Pages starting with this URL are opened within the app, others in the system web browser (include any trailing slash!)
-var LANDING_URL= "https://thequestionmark.github.io/cordova-web-wrap/";
+// Page to open when app starts.
+var LANDING_URL  = "https://www.thequestionmark.org/index-app?app=Questionmark";
 // URLs listed here open in the app, others in the system web browser.
 // Both absolute and host-relative URLs (with respect to LANDING_URL) are allowed.
 // The URL on test includes a leading slash, but does not include query string or hash.
 // Asterisks '*' act as a wildcard. Multiple entries are separated by a space.
 // Note that it can be overridden by the document using the `data-app-local-urls` attribute.
-var LOCAL_URLS = "/*";
+// var LOCAL_URLS = "/*";
+var LOCAL_URLS = "/index-app /lookup /search /404 /contact /over-ons /categories /categories/* /products/*";
 
 
 // Regular expression for parsing full URLs, returning: base, path, query, hash.

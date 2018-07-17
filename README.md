@@ -1,13 +1,13 @@
-# Cordova Web Wrap
+# Questionmark app
 
-This app is a light-weight [Cordova](http://cordova.apache.org/) wrapper around a
-mobile website. It can be useful to add functionality that only works in apps, like
-barcode scanning, to a mobile website. While Cordova does a lot to make this possible,
-a polished, well-working app is not yet trivial. This project simplifies that.
+This app is a light-weight [Cordova](http://cordova.apache.org/) wrapper around the
+[Questionmark website](https://www.thequestionmark.org/), restricted to searching
+and viewing products. It is based on our own [cordova-web-wrap](https://github.com/q-m/cordova-web-wrap).
 
-Note that it's best to create a [single page application](https://en.wikipedia.org/wiki/Single-page_application),
-so that the website code only needs to be loaded once. This allows the user to have
-fast interaction with the app.
+To avoid having to change and publish the app when we add features, we just load the website on
+app launch, and since it's a [single page application](https://en.wikipedia.org/wiki/Single-page_application),
+it behaves like a regular Cordova app from then on. In this way, we only need to
+maintain the website (taking care it looks well on mobile).
 
 Features:
 
@@ -26,26 +26,27 @@ Features:
 3. [Check (and install) requirements](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#install-pre-requisites-for-building): `cordova requirements`
 4. [Build](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app): `cordova build`
 
+The URL loaded is specified by `LANDING_URL` in [`www/js/index.js`](www/js/index.js#L21).
+
 ### iOS
 
 On iOS `cordova build ios` may not be enough. After running this, you can open the folder `platforms/ios` in Xcode.
 In the warnings shown there are two items about updating build settings. Accept the modifications (ignoring the warning
 about uncommited changes), and build it from Xcode.
 
-## Configure
+## Publish
 
-- Change `LANDING_URL` in [`www/js/index.js`](www/js/index.js#L21) to point to your mobile website.
-- Update `id`, `name`, `description` and `author` in [`config.xml`](config.xml) ([reference](https://cordova.apache.org/docs/en/latest/config_ref/)).
-- Modify `name`, `displayName`, `description` and `author` in [`package.json`](package.json).
-- Edit `title`, `h1` and other texts in [`www/index.html`](www/index.html).
+### Android
 
-Then build and install.
-If you want more beautiful icons (recommended), run
+You'll need the Questionmark Android keystore for this, including its password.
 
-    npm install cordova-icon
-    node_modules/.bin/cordova-icon --icon=res/icon.png
+1. Create `platforms/android/release-signing.properties` according to [this](https://cordova.apache.org/docs/en/latest/guide/platforms/android/#using-gradle) (use relative path).
+2. Build a release: `cordova build android --release`
+3. Upload and release in Google Play store.
 
-To use your own icons, update [`res/icon.png`](res/icon.png) and [`www/img/logo.png`](www/img/logo.png) before doing so.
+### iOS
+
+TODO
 
 ## State machine
 

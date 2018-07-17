@@ -1,19 +1,20 @@
 {
-  "name": "com.example.webwrap",
-  "displayName": "Example",
-  "version": "1.0.0",
-  "description": "An example Cordova app wrapping a mobile website.",
-  "homepage": "https://github.com/q-m/cordova-web-wrap",
+  "name": "org.thequestionmark.questionmark",
+  "displayName": "Questionmark",
+  "version": "3.0.2",
+  "description": "Duurzaam en gezond eten? Wij help je kiezen!",
+  "homepage": "https://github.com/q-m/questionmark-app",
   "license": "Apache-2.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "wvengen",
+  "author": "The Questionmark",
   "dependencies": {
     "cordova-plugin-app-launcher": "^0.4.0",
     "cordova-plugin-inappbrowser": "git+https://github.com/q-m/cordova-plugin-inappbrowser.git#2eacaa",
     "cordova-plugin-network-information": "^2.0.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "phonegap-plugin-barcodescanner": "^7.1.2"
   },
@@ -22,6 +23,7 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-network-information": {},
+      "cordova-plugin-splashscreen": {},
       "phonegap-plugin-barcodescanner": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },

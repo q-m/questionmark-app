@@ -57,6 +57,7 @@
             <string>To scan barcodes</string>
         </edit-config>
     </platform>
+    <preference name="Orientation" value="portrait" />
     <preference name="AppendUserAgent" value=" QuestionmarkApp" />
     <preference name="AllowedSchemes" value="app" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />

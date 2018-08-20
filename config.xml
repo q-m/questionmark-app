@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.thequestionmark.questionmark" ios-CFBundleIdentifier="org.thequestionmark.QuestionMarkApp" version="3.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="org.thequestionmark.questionmark" ios-CFBundleIdentifier="org.thequestionmark.QuestionMarkApp" version="3.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Questionmark</name>
     <description>Duurzaam en gezond eten? Wij help je kiezen!</description>
     <author email="info@thequestionmark.org" href="https://www.thequestionmark.org">Questionmark</author>

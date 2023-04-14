@@ -18,7 +18,7 @@
  */
 
 // Page to open when app starts.
-var LANDING_URL  = "https://www.thequestionmark.org/index-app?app=Questionmark";
+var LANDING_URL  = "https://github.com";
 // URLs listed here open in the app, others in the system web browser.
 // Both absolute and host-relative URLs (with respect to LANDING_URL) are allowed.
 // The URL on test includes a leading slash, but does not include query string or hash.
@@ -411,7 +411,6 @@ var Fsm = machina.Fsm.extend({
       '    window.location.assign("app://open?url=" + encodeURIComponent(href));\n' +
       '  }\n' +
       '});\n' +
-      'console.log("installed click event listener for external links");\n'
     }, function() {
       // Also log in app console.
       debug("installed click event listener for external links");

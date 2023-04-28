@@ -18,7 +18,7 @@
  */
 
 // Page to open when app starts.
-var LANDING_URL  = "https://github.com";
+var LANDING_URL  = "https://checker.thequestionmark.org/index-app";
 // URLs listed here open in the app, others in the system web browser.
 // Both absolute and host-relative URLs (with respect to LANDING_URL) are allowed.
 // The URL on test includes a leading slash, but does not include query string or hash.
@@ -29,7 +29,7 @@ var LOCAL_URLS = "/index-app /lookup /search /404 /contact /over-ons /categories
 
 
 // Regular expression for parsing full URLs, returning: base, path, query, hash.
-var SPLIT_URL_RE = /^([^:/]+:\/\/[^/]+)(\/[^?]*)(?:\?([^#]*))?(?:#(.*))?$/i;
+var SPLIT_URL_RE = /^(http[s]?:)+\/\/([^:\/\s]+)([^#?\s]+)?([^#]*)?(#.*)?$/i;
 // Base URL for matching, derived from LANDING_URL (without trailing slash).
 var BASE_URL     = LANDING_URL.match(SPLIT_URL_RE)[1];
 
@@ -397,20 +397,20 @@ var Fsm = machina.Fsm.extend({
     // Catch links that were clicked to route external ones through our custom protocol.
     // We'd rather not do this in the loadstart event, because the page then already started loading.
     this.app.executeScript({ code:
-      'window.addEventListener("click", function(e) {\n' +
-      '  if (e.target.tagName !== "A") return;\n' +
-      '  var href = e.target.href;\n' +
-      '  if (!href || href.startsWith("app:")) return;\n' +
-      '  var BASE_URL     = ' + JSON.stringify(BASE_URL) + ';\n' +
-      '  var SPLIT_URL_RE = ' + SPLIT_URL_RE.toString() + ';\n' +
-      '  var localUrlRe   = ' + this.localUrlRe.toString() + ';\n' +
-      '  var parts = href.match(SPLIT_URL_RE);\n' +
-      '  var base = parts[1], path = parts[2];\n' +
-      '  if (!(base + path).match(localUrlRe) && !(base === BASE_URL && path.match(localUrlRe))) {\n' +
-      '    e.preventDefault();\n' +
-      '    window.location.assign("app://open?url=" + encodeURIComponent(href));\n' +
-      '  }\n' +
-      '});\n' +
+      `window.addEventListener("click", function(e) {
+        if (e.target.tagName !== "A") return;
+        var href = e.target.href;
+        if (!href || href.startsWith("app:")) return;
+        var BASE_URL     = ${JSON.stringify(BASE_URL)};
+        var SPLIT_URL_RE = ${SPLIT_URL_RE.toString()};
+        var localUrlRe   = ${this.localUrlRe.toString()};
+        var parts = href.match(SPLIT_URL_RE);
+        var base = parts[1], path = parts[2];
+        if (!(base + path).match(localUrlRe) && !(base === BASE_URL && path.match(localUrlRe))) {
+          e.preventDefault();
+          window.location.assign("app://open?url=" + encodeURIComponent(href));
+        }
+      });`
     }, function() {
       // Also log in app console.
       debug("installed click event listener for external links");

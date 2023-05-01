@@ -7,7 +7,6 @@
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="mailto:*" />
-    <access origin="*" />
     <platform name="android">
         <icon density="ldpi" platform="android" src="res/icon/android/icon-36-ldpi.png" />
         <icon density="mdpi" platform="android" src="res/icon/android/icon-48-mdpi.png" />

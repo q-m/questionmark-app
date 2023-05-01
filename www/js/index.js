@@ -18,7 +18,7 @@
  */
 
 // Page to open when app starts.
-var LANDING_URL  = "https://checker.thequestionmark.org/index-app";
+var LANDING_URL  = "https://checker.thequestionmark.org/index-app?app=Questionmark";
 // URLs listed here open in the app, others in the system web browser.
 // Both absolute and host-relative URLs (with respect to LANDING_URL) are allowed.
 // The URL on test includes a leading slash, but does not include query string or hash.

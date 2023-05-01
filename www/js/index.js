@@ -30,8 +30,12 @@ var LOCAL_URLS = "/index-app /lookup /search /404 /contact /over-ons /categories
 
 // Regular expression for parsing full URLs, returning: base, path, query, hash.
 var SPLIT_URL_RE = /^(http[s]?:)+\/\/([^:\/\s]+)([^#?\s]+)?([^#]*)?(#.*)?$/i;
+
 // Base URL for matching, derived from LANDING_URL (without trailing slash).
-var BASE_URL     = LANDING_URL.match(SPLIT_URL_RE)[1];
+// Test the regex https://regex101.com/r/lwma4T/1
+// ["https://checker.thequestionmark.org/index-app", "https:", "checker.thequestionmark.org", "/index-app", undefined, undefined]
+// Index [url, protocol, base, path, querystring, hash]
+var BASE_URL     = LANDING_URL.match(SPLIT_URL_RE)[2];
 
 // Main functionality using a state machine.
 var Fsm = machina.Fsm.extend({
@@ -388,7 +392,7 @@ var Fsm = machina.Fsm.extend({
   isLocalUrl: function(url) {
     var parts = url.match(SPLIT_URL_RE);
     if (parts) {
-      var base = parts[1], path = parts[2];
+      var base = parts[2], path = parts[3];
       return (base + path).match(this.localUrlRe) || (base === BASE_URL && path.match(this.localUrlRe));
     }
   },

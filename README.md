@@ -23,9 +23,9 @@ Features:
 
 ```
 npm i
-npx cordova platform add ios
+npx cordova platform add ios # only on iOS supported platform
 npx cordova platform add android
-npx cordova build ios # if you are on a iOS supported platform
+npx cordova build ios # only on iOS supported platform
 npx cordova build android
 ```
 

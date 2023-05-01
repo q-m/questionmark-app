@@ -34,7 +34,6 @@
     ]
   },
   "devDependencies": {
-    "cordova": "~11.1.0",
-    "cordova-ios": "~6.3.0"
+    "cordova": "~11.1.0"
   }
 }

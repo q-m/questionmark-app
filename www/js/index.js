@@ -32,8 +32,8 @@ var LOCAL_URLS = "/index-app /lookup /search /404 /contact /over-ons /categories
 var SPLIT_URL_RE = /^(http[s]?:)+\/\/([^:\/\s]+)([^#?\s]+)?([^#]*)?(#.*)?$/i;
 
 // Base URL for matching, derived from LANDING_URL (without trailing slash).
-// Test the regex https://regex101.com/r/lwma4T/1
-// ["https://checker.thequestionmark.org/index-app", "https:", "checker.thequestionmark.org", "/index-app", undefined, undefined]
+// Test the regex https://regex101.com/r/ZpSUnQ/1
+// ["https://checker.thequestionmark.org/index-app", "https:", "checker.thequestionmark.org", "/index-app", "?app=Questionmark", undefined]
 // Index [url, protocol, base, path, querystring, hash]
 var BASE_URL     = LANDING_URL.match(SPLIT_URL_RE)[2];
 

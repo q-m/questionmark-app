@@ -31,6 +31,8 @@ npx cordova build android
 
 The URL loaded is specified by `LANDING_URL` in [`www/js/index.js`](www/js/index.js#L21).
 
+Refer [cordova docs](https://cordova.apache.org/docs/en/11.x/guide/cli/index.html) for more details.
+
 ### iOS
 
 On iOS `npx cordova build ios` may not be enough. After running this, you can open the folder `platforms/ios` in Xcode.

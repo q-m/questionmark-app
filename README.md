@@ -19,18 +19,25 @@ Features:
 - Allows scanning a barcode, initiated from the website.
 - Works on Android and iOS.
 
-## Build
+## Set up
 
-1. [Install Cordova](http://cordova.apache.org/docs/en/latest/guide/cli/index.html): `npm install -g cordova`
-2. [Add platforms](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#add-platforms): `cordova platform add android` and/or `cordova platform add ios`.
-3. [Check (and install) requirements](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#install-pre-requisites-for-building): `cordova requirements`
-4. [Build](https://cordova.apache.org/docs/en/latest/guide/cli/index.html#build-the-app): `cordova build`
+```
+npm i
+npx cordova requirements # check requirements for building the app
+npx cordova platform add ios      # only on iOS supported platform
+npm i ios-deploy -g               # only on iOS supported platform
+npx cordova platform add android
+npx cordova build ios             # only on iOS supported platform
+npx cordova build android
+```
 
 The URL loaded is specified by `LANDING_URL` in [`www/js/index.js`](www/js/index.js#L21).
 
+Refer [cordova docs](https://cordova.apache.org/docs/en/11.x/guide/cli/index.html) for more details.
+
 ### iOS
 
-On iOS `cordova build ios` may not be enough. After running this, you can open the folder `platforms/ios` in Xcode.
+On iOS `npx cordova build ios` may not be enough. After running this, you can open the folder `platforms/ios` in Xcode.
 In the warnings shown there are two items about updating build settings. Accept the modifications (ignoring the warning
 about uncommited changes), and build it from Xcode.
 

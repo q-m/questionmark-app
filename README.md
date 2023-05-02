@@ -24,9 +24,10 @@ Features:
 ```
 npm i
 npx cordova requirements # check requirements for building the app
-npx cordova platform add ios # only on iOS supported platform
+npx cordova platform add ios      # only on iOS supported platform
+npm i ios-deploy -g               # only on iOS supported platform
 npx cordova platform add android
-npx cordova build ios # only on iOS supported platform
+npx cordova build ios             # only on iOS supported platform
 npx cordova build android
 ```
 

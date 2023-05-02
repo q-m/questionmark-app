@@ -56,6 +56,11 @@
         <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
             <string>To scan barcodes</string>
         </edit-config>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>app</string>
+            </array>
+        </config-file>
     </platform>
     <preference name="Orientation" value="portrait" />
     <preference name="AppendUserAgent" value=" QuestionmarkApp" />
